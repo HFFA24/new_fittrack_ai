@@ -6,8 +6,9 @@
 class AssetsRes {
   AssetsRes._();
 
-  static const String PROJECT_NAME = 'fittrack_ai';
+  static const String PROJECT_NAME = 'new_fittrack_ai';
   static const String PROJECT_VERSION = '1.0.0+1';
+  static const String FITTRACK_LOGO = 'assets/fittrack logo.png';
   static const String CALORIE_MODEL = 'assets/models/calorie_model.tflite';
   static const String MODEL = 'assets/models/model.tflite';
 }
