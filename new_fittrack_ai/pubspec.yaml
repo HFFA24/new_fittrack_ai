@@ -40,6 +40,7 @@ dependencies:
   provider: ^6.1.0
   tflite_flutter: ^0.9.0
   tflite_flutter_helper: ^0.2.1
+  flutter_native_splash: ^2.2.16
   # Charts and data formatting
   fl_chart: ^1.0.0
   intl: ^0.20.2 
@@ -82,7 +83,8 @@ flutter:
   assets:
     - assets/models/calorie_model.tflite
     - assets/models/model.tflite
-
+    - assets/fittrack logo.png
+    #- assets/tagline.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
@@ -108,3 +110,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_native_splash:
+  color: "#800080"           # Purple background
+  image: assets/fittrack logo.png     # Your main logo
+  #branding: assets/tagline.png   # Optional tagline image
+  #branding_mode: bottom      # Position tagline at the bottom
+  android_gravity: center     # Position of the logo on Android
+  ios_content_mode: center    # Position of the logo on iOS
+  fullscreen: true           # Use fullscreen splash mode
+  android_12:
+    color: "#800080"
+    image: assets/fittrack logo.png
+    #branding: assets/tagline.png
+

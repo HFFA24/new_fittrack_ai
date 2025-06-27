@@ -1,4 +1,7 @@
-// main.dart
+/*────────────────────────────────────────────
+  main.dart – with SplashScreen first
+────────────────────────────────────────────*/
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,10 +9,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
-import 'calorie predictor.dart'; // ← import predictor
-import 'homepage.dart';
-import 'login_page.dart';
-import 'firebase_options.dart';
+import 'calorie predictor.dart'; // predictor init
+import 'homepage.dart'; // HomePage after login
+import 'login_page.dart'; // Login / Register
+import 'firebase_options.dart'; // Firebase config
+import 'splash screen.dart'; // NEW – purple splash
 
 /*────────────────────────────────────────────
   1. Global instances (notifications)
@@ -32,7 +36,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await CaloriePredictor.init(); // ✅ load model once
+  await CaloriePredictor.init(); // load model
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await _initLocalNotifications();
@@ -40,7 +44,7 @@ Future<void> main() async {
   final token = await FirebaseMessaging.instance.getToken();
   debugPrint('🪪 FCM Token: $token');
 
-  runApp(const MyApp());
+  runApp(const FitTrackAI());
 }
 
 /*────────────────────────────────────────────
@@ -68,27 +72,32 @@ Future<void> _initLocalNotifications() async {
 }
 
 /*────────────────────────────────────────────
-  5. Root widget
+  5. Root widget – starts with SplashScreen
 ────────────────────────────────────────────*/
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FitTrackAI extends StatelessWidget {
+  const FitTrackAI({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FitTrack AI',
       debugShowCheckedModeBanner: false,
+      title: 'FitTrack AI',
       theme: ThemeData(
+        fontFamily: 'Roboto',
+        scaffoldBackgroundColor: const Color(0xFF800080), // purple
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AuthGate(),
+      home: const SplashScreen(), // ← splash first
+      routes: {
+        '/auth': (_) => const AuthGate(), // target after splash
+      },
     );
   }
 }
 
 /*────────────────────────────────────────────
-  6. AuthGate
+  6. AuthGate – unchanged
 ────────────────────────────────────────────*/
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
