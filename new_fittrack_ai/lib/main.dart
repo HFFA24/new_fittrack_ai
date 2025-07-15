@@ -8,12 +8,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
-
-import 'calorie predictor.dart'; // predictor init
-import 'homepage.dart'; // HomePage after login
-import 'login_page.dart'; // Login / Register
-import 'firebase_options.dart'; // Firebase config
-import 'splash screen.dart'; // NEW – purple splash
+// ignore: unused_import
+import 'package:firebase_database/firebase_database.dart';
+import 'calorie predictor.dart';
+import 'homepage.dart';
+import 'login_page.dart';
+import 'firebase_options.dart';
+import 'splash screen.dart';
+import 'chatbot_overlay.dart';
 
 /*────────────────────────────────────────────
   1. Global instances (notifications)
@@ -26,7 +28,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 ────────────────────────────────────────────*/
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  debugPrint('🔔 BG message ID: ${message.messageId}');
+  debugPrint(' BG message ID: ${message.messageId}');
 }
 
 /*────────────────────────────────────────────
@@ -84,20 +86,25 @@ class FitTrackAI extends StatelessWidget {
       title: 'FitTrack AI',
       theme: ThemeData(
         fontFamily: 'Roboto',
-        scaffoldBackgroundColor: const Color(0xFF800080), // purple
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: const Color.fromARGB(
+          80,
+          156,
+          90,
+          194,
+        ), // purple
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(179, 153, 115, 219),
+        ),
         useMaterial3: true,
       ),
-      home: const SplashScreen(), // ← splash first
-      routes: {
-        '/auth': (_) => const AuthGate(), // target after splash
-      },
+      home: const SplashScreen(), //
+      routes: {'/auth': (_) => const AuthGate()},
     );
   }
 }
 
 /*────────────────────────────────────────────
-  6. AuthGate – unchanged
+  6. AuthGate with ChatbotOverlay
 ────────────────────────────────────────────*/
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -112,7 +119,12 @@ class AuthGate extends StatelessWidget {
             body: Center(child: CircularProgressIndicator()),
           );
         }
-        return snapshot.hasData ? const HomePage() : const LoginPage();
+
+        if (snapshot.hasData) {
+          return Stack(children: const [HomePage(), ChatbotOverlay()]);
+        }
+
+        return const LoginPage();
       },
     );
   }
