@@ -45,13 +45,13 @@ class _HomePageState extends State<HomePage> {
   /* Listen for foreground push messages */
   void _listenForForegroundMessages() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      debugPrint('🔔 New push message received!');
+      debugPrint(' New push message received!');
       debugPrint('Title: ${message.notification?.title}');
       debugPrint('Body: ${message.notification?.body}');
 
       // Show banner via local notification
       const androidDetails = AndroidNotificationDetails(
-        'fcm_default', // make sure you created this channel once at app start
+        'fcm_default',
         'FCM Messages',
         importance: Importance.high,
         priority: Priority.high,
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.deepPurple[50],
       appBar: AppBar(
         title: const Text('FitTrack AI'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 154, 111, 228),
         centerTitle: true,
         actions: [
           IconButton(
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: const Color.fromARGB(255, 168, 129, 237),
         onTap: _onItemTapped,
       ),
     );

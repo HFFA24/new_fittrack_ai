@@ -1,5 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fittrack_ai">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
 
     <!-- ─── Permissions ──────────────────────────────────────────────── -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -7,10 +7,11 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
     <!-- ─── App‑level configuration ──────────────────────────────────── -->
-    <application
+    <application>
         android:label="fittrack_ai"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true"
 
         <!-- 👉 ADD THIS LINE (required by FCM for Android 8+) -->
         <meta-data

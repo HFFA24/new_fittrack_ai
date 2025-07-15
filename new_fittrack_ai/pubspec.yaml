@@ -38,9 +38,12 @@ dependencies:
   cloud_firestore: ^5.6.9
   firebase_messaging: ^15.2.7
   provider: ^6.1.0
-  tflite_flutter: ^0.9.0
-  tflite_flutter_helper: ^0.2.1
-  flutter_native_splash: ^2.2.16
+  tflite_flutter: ^0.11.0
+  webview_flutter: ^4.13.0
+  firebase_database: ^11.3.7
+  
+  #tflite_flutter_helper: ^0.3.0
+  flutter_native_splash: ^2.3.1
   # Charts and data formatting
   fl_chart: ^1.0.0
   intl: ^0.20.2 
@@ -81,9 +84,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/fittrack logo.png
+    - assets/avatar.png
+    - assets/chatbot.html
+    - assets/logo.png
     - assets/models/calorie_model.tflite
     - assets/models/model.tflite
+    #- assets/tagline.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
@@ -111,7 +117,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 flutter_native_splash:
   color: "#800080"           # Purple background
-  image: assets/fittrack logo.png     # Your main logo
+  image: assets/logo.png     # Your main logo
   #branding: assets/tagline.png   # Optional tagline image
   #branding_mode: bottom      # Position tagline at the bottom
   android_gravity: center     # Position of the logo on Android
@@ -119,6 +125,6 @@ flutter_native_splash:
   fullscreen: true           # Use fullscreen splash mode
   android_12:
     color: "#800080"
-    image: assets/fittrack logo.png
+    image: assets/logo.png
     #branding: assets/tagline.png
 

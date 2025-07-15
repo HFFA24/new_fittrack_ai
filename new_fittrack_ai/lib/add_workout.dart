@@ -92,7 +92,7 @@ class _AddWorkoutPageState extends State<AddWorkoutPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Workout"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 147, 108, 216),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -100,9 +100,7 @@ class _AddWorkoutPageState extends State<AddWorkoutPage> {
           children: [
             TextField(
               controller: _typeController,
-              decoration: const InputDecoration(
-                labelText: "Workout Type (e.g. Running)",
-              ),
+              decoration: const InputDecoration(labelText: "Workout Type "),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -116,7 +114,7 @@ class _AddWorkoutPageState extends State<AddWorkoutPage> {
             ElevatedButton(
               onPressed: _handleSave,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: const Color.fromARGB(255, 178, 146, 232),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 40,
                   vertical: 14,

@@ -140,8 +140,8 @@ class NotificationService {
     final t = time ?? const TimeOfDay(hour: 20, minute: 0);
     await scheduleDailyNotification(
       id: 0,
-      title: '🏋️ Time to Move!',
-      body: 'Log your workout or take a walk 💪',
+      title: ' Time to Move!',
+      body: 'Log your workout or take a walk ',
       time: t,
       channelId: 'workout_channel_id',
       channelName: 'Workout Reminders',

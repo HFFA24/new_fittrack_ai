@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.deepPurple[50],
       appBar: AppBar(
         title: const Text("Login"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 165, 121, 241),
         centerTitle: true,
       ),
       body: Padding(
@@ -64,14 +64,18 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(
                 children: [
-                  const Icon(Icons.login, size: 60, color: Colors.deepPurple),
+                  const Icon(
+                    Icons.login,
+                    size: 60,
+                    color: Color.fromARGB(255, 141, 104, 203),
+                  ),
                   const SizedBox(height: 20),
                   Text(
                     "Welcome Back!",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple[800],
+                      color: const Color.fromARGB(255, 134, 109, 209),
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -121,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton(
                     onPressed: login,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: const Color.fromARGB(255, 125, 83, 198),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 60,
                         vertical: 14,

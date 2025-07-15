@@ -8,7 +8,7 @@ class CaloriePredictor {
     _interpreter = await Interpreter.fromAsset(
       'assets/models/calorie_model.tflite',
     );
-    debugPrint('✅ TFLite model loaded');
+    debugPrint(' TFLite model loaded');
   }
 
   static double predict(List<double> features) {

@@ -82,7 +82,7 @@ class _WorkoutTrackerPageState extends State<WorkoutTrackerPage> {
       backgroundColor: Colors.deepPurple[50],
       appBar: AppBar(
         title: const Text('Workout Tracker'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 172, 139, 228),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -98,7 +98,7 @@ class _WorkoutTrackerPageState extends State<WorkoutTrackerPage> {
                   const SizedBox(height: 8),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: const Color.fromARGB(255, 173, 149, 214),
                       foregroundColor: Colors.white,
                     ),
                     onPressed: _addCardioWorkout,
@@ -116,7 +116,7 @@ class _WorkoutTrackerPageState extends State<WorkoutTrackerPage> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
-                                color: Colors.deepPurple[50],
+                                color: const Color.fromARGB(255, 151, 119, 200),
                                 margin: const EdgeInsets.symmetric(vertical: 8),
                                 child: ListTile(
                                   leading: const Icon(
@@ -136,7 +136,7 @@ class _WorkoutTrackerPageState extends State<WorkoutTrackerPage> {
               ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 172, 145, 223),
         child: const Icon(Icons.add),
         onPressed: () async {
           await Navigator.push(
